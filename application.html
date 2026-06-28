@@ -514,161 +514,133 @@ Submit Application
 
 
 
-
 <script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+    getDatabase,
+    ref,
+    push,
+    set
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-import { initializeApp } from 
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-
-import { 
-getDatabase,
-ref,
-set,
-get,
-child
-} from 
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-
-
+// Firebase Configuration
 const firebaseConfig = {
-
-apiKey:"AIzaSyDPNzU_dZZFxT571eyYxuzS7KV7upr5Elk",
-
-authDomain:"housingwnat-propertymanagement.firebaseapp.com",
-
-databaseURL:
-"https://housingwnat-propertymanagement-default-rtdb.europe-west1.firebasedatabase.app",
-
-projectId:"housingwnat-propertymanagement",
-
-storageBucket:
-"housingwnat-propertymanagement.firebasestorage.app",
-
-messagingSenderId:"300392854046",
-
-appId:"1:300392854046:web:875ec558c91ca9a077340f"
-
+    apiKey: "YOUR_API_KEY",
+    authDomain: "housingwnat-propertymanagement.firebaseapp.com",
+    databaseURL: "https://housingwnat-propertymanagement-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "housingwnat-propertymanagement",
+    storageBucket: "housingwnat-propertymanagement.firebasestorage.app",
+    messagingSenderId: "300392854046",
+    appId: "1:300392854046:web:875ec558c91ca9a077340f"
 };
 
-
-
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const db = getDatabase(app);
 
+// Form
+const form = document.getElementById("applicationForm");
 
+// Submit
+form.addEventListener("submit", async (e) => {
 
+    e.preventDefault();
 
+    try {
 
-document
-.getElementById("applicationForm")
-.addEventListener("submit", async(e)=>{
+        const applicationRef = push(ref(db, "Users"));
 
+        await set(applicationRef, {
 
-e.preventDefault();
+            Details: {
 
+                property: property.value,
+                street: street.value,
+                viewDate: viewDate.value,
+                viewTime: viewTime.value,
 
+                firstName: firstName.value,
+                lastName: lastName.value,
 
-let database = await get(ref(db,"Users"));
+                email: email.value,
 
-let number = 1;
+                phone: code.value + " " + phone.value,
 
+                birthdate: birthdate.value,
 
-if(database.exists()){
+                address: address.value,
 
-number = Object.keys(database.val()).length + 1;
+                moveDate: moveDate.value,
 
-}
+                employment: employment.value,
 
+                salary: salary.value,
 
+                pets: pets.value,
 
-await set(
-ref(db,"Users/"+number+"/Details"),
-{
+                question: question.value,
 
+                smoking: smoking.value,
 
-property:
-property.value,
+                children: children.value,
 
-street:
-street.value,
+                crime: crime.value,
 
-viewDate:
-viewDate.value,
+                evicted: evicted.value,
 
-viewTime:
-viewTime.value,
+                secure: secure.value,
 
+                payment: payment.value,
 
-firstName:
-firstName.value,
+                applicationDate: new Date().toISOString(),
 
-lastName:
-lastName.value,
+                status: "Pending",
 
-email:
-email.value,
+                approved: false
 
-phone:
-code.value+" "+phone.value,
+            }
 
+        });
 
-birthdate:
-birthdate.value,
+    } catch (error) {
 
-address:
-address.value,
+        console.error(error);
 
-moveDate:
-moveDate.value,
+    }
 
+    // Reset form
+    form.reset();
 
-employment:
-employment.value,
+    // Success notification
+    const notification = document.createElement("div");
 
-salary:
-salary.value,
+    notification.textContent = "Application submitted successfully.";
 
-pets:
-pets.value,
+    notification.style.position = "fixed";
+    notification.style.top = "20px";
+    notification.style.right = "20px";
+    notification.style.background = "#28a745";
+    notification.style.color = "#fff";
+    notification.style.padding = "15px 25px";
+    notification.style.borderRadius = "8px";
+    notification.style.fontSize = "16px";
+    notification.style.fontWeight = "bold";
+    notification.style.boxShadow = "0 5px 15px rgba(0,0,0,.25)";
+    notification.style.zIndex = "99999";
 
-question:
-question.value,
+    document.body.appendChild(notification);
 
-smoking:
-smoking.value,
+    // Redirect after notification
+    setTimeout(() => {
 
-children:
-children.value,
+        notification.remove();
 
-crime:
-crime.value,
+        window.location.href = "payment.html";
 
-evicted:
-evicted.value,
-
-secure:
-secure.value,
-
-payment:
-payment.value,
-
-
-applicationDate:
-new Date().toString()
-
-
-});
-
-
-window.location.href="nextpage.html";
-
+    }, 1500);
 
 });
-
 
 </script>
 
