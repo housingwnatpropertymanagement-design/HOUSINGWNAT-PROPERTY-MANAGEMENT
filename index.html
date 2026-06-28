@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HOUSINGWNAT PROPERTY MANAGEMENT</title>
+
+<!-- Firebase -->
+<script type="module">
+
+import { initializeApp } from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { getDatabase } from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDPNzU_dZZFxT571eyYxuzS7KV7upr5Elk",
+
+authDomain: "housingwnat-propertymanagement.firebaseapp.com",
+
+databaseURL:
+"https://housingwnat-propertymanagement-default-rtdb.europe-west1.firebasedatabase.app",
+
+projectId: "housingwnat-propertymanagement",
+
+storageBucket:
+"housingwnat-propertymanagement.firebasestorage.app",
+
+messagingSenderId: "300392854046",
+
+appId:
+"1:300392854046:web:875ec558c91ca9a077340f",
+
+measurementId: "G-WDSRZHTS5V"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const database = getDatabase(app);
+
+
+window.firebaseDatabase = database;
+
+</script>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+background:#f5f5f5;
+color:#333;
+}
+
+
+
+header{
+
+background:#003366;
+color:white;
+padding:25px;
+text-align:center;
+
+}
+
+
+header h1{
+
+font-size:34px;
+
+}
+
+
+header p{
+
+margin-top:10px;
+font-size:18px;
+
+}
+
+
+
+nav{
+
+background:#0056b3;
+padding:15px;
+text-align:center;
+
+}
+
+
+nav a{
+
+color:white;
+text-decoration:none;
+margin:0 18px;
+font-weight:bold;
+
+}
+
+
+
+.hero{
+
+
+height:420px;
+
+background:
+
+linear-gradient(
+rgba(0,0,0,.5),
+rgba(0,0,0,.5)
+),
+
+url("https://images.unsplash.com/photo-1494526585095-c41746248156?w=1600&q=80");
+
+
+background-size:cover;
+
+background-position:center;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+color:white;
+
+text-align:center;
+
+}
+
+
+
+.hero h2{
+
+font-size:48px;
+
+text-shadow:2px 2px 8px black;
+
+}
+
+
+
+.container{
+
+width:92%;
+margin:auto;
+padding:30px 0;
+
+}
+
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.card{
+
+background:white;
+
+border-radius:12px;
+
+overflow:hidden;
+
+box-shadow:
+0 3px 10px rgba(0,0,0,.2);
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+.card img{
+
+width:100%;
+height:220px;
+object-fit:cover;
+
+}
+
+
+
+.card h3{
+
+padding:12px;
+font-size:22px;
+
+}
+
+
+
+.card p{
+
+padding:0 12px 15px;
+color:#666;
+
+}
+
+
+
+footer{
+
+background:#003366;
+
+color:white;
+
+text-align:center;
+
+padding:25px;
+
+margin-bottom:70px;
+
+}
+
+
+
+.bottom{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+right:0;
+
+background:#003366;
+
+display:flex;
+
+justify-content:space-around;
+
+padding:12px;
+
+}
+
+
+
+.bottom a{
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+
+.application{
+
+background:#28a745;
+
+padding:8px 20px;
+
+border-radius:20px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+HOUSINGWNAT PROPERTY MANAGEMENT
+</h1>
+
+<p>
+Luxury Apartments & Professional Property Management
+</p>
+
+</header>
+
+
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#">Apartments</a>
+
+<a href="#">Branches</a>
+
+</nav>
+
+
+
+<section class="hero">
+
+<h2>
+Find Your Perfect Home
+</h2>
+
+</section>
+
+
+
+
+<div class="container">
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80">
+
+<h3>
+Luxury Apartment 1
+</h3>
+
+<p>
+New York City • $2,150/month
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?w=800&q=80">
+
+<h3>
+Luxury Apartment 2
+</h3>
+
+<p>
+New York City • $2,300/month
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80">
+
+<h3>
+Luxury Apartment 3
+</h3>
+
+<p>
+New York City • $2,450/month
+</p>
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80">
+
+<h3>
+Luxury Apartment 4
+</h3>
+
+<p>
+New York City • $2,600/month
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80">
+
+<h3>
+Luxury Apartment 5
+</h3>
+
+<p>
+New York City • $2,750/month
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800&q=80">
+
+<h3>
+Luxury Apartment 6
+</h3>
+
+<p>
+New York City • $2,900/month
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1464890100898-a385f744067f?w=800&q=80">
+
+<h3>
+Luxury Apartment 7
+</h3>
+
+<p>
+New York City • $3,050/month
+</p>
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80">
+
+<h3>
+Luxury Apartment 8
+</h3>
+
+<p>
+New York City • $3,200/month
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80">
+
+<h3>
+Luxury Apartment 9
+</h3>
+
+<p>
+New York City • $3,350/month
+</p>
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80">
+
+<h3>
+Luxury Apartment 10
+</h3>
+
+<p>
+New York City • $3,500/month
+</p>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<footer>
+
+<h3>
+HOUSINGWNAT PROPERTY MANAGEMENT
+</h3>
+
+<p>
+Branches: Manhattan • Brooklyn • Queens • Bronx • Staten Island
+</p>
+
+
+<p>
+© 2026 Housingwnat Property Management
+</p>
+
+
+</footer>
+
+
+
+
+
+<div class="bottom">
+
+
+<a href="#">
+Home
+</a>
+
+
+<a href="#">
+Apartments
+</a>
+
+
+<a class="application"
+href="application.html">
+
+Application
+
+</a>
+
+
+</div>
+
+
+
+</body>
+</html>
