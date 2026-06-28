@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HOUSINGWNAT PROPERTY MANAGEMENT - Payment</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fb;
+color:#333;
+}
+
+.header{
+background:#003366;
+color:#fff;
+padding:35px 20px;
+text-align:center;
+box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+.header h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.header p{
+font-size:17px;
+opacity:.95;
+}
+
+.container{
+width:92%;
+max-width:900px;
+margin:35px auto;
+}
+
+.card{
+background:#fff;
+border-radius:12px;
+padding:30px;
+box-shadow:0 5px 18px rgba(0,0,0,.1);
+margin-bottom:25px;
+}
+
+.card h2{
+color:#003366;
+margin-bottom:20px;
+border-bottom:2px solid #e8eef6;
+padding-bottom:12px;
+}
+
+.status-box{
+background:#f8fafc;
+border:1px solid #d9e2ec;
+border-radius:10px;
+padding:25px;
+text-align:center;
+}
+
+.status-title{
+font-size:18px;
+color:#555;
+margin-bottom:15px;
+}
+
+#statusBadge{
+display:inline-block;
+padding:12px 28px;
+border-radius:30px;
+font-size:18px;
+font-weight:bold;
+background:#ffc107;
+color:#333;
+}
+
+.loading{
+font-size:15px;
+color:#666;
+margin-top:15px;
+}
+
+.info{
+margin-top:25px;
+line-height:1.8;
+font-size:16px;
+color:#444;
+}
+
+.fee-box{
+margin-top:25px;
+background:#eef7ff;
+border-left:6px solid #003366;
+padding:20px;
+border-radius:8px;
+}
+
+.fee-title{
+font-size:18px;
+font-weight:bold;
+color:#003366;
+margin-bottom:10px;
+}
+
+.fee-amount{
+font-size:34px;
+font-weight:bold;
+color:#28a745;
+}
+
+@media(max-width:768px){
+
+.header h1{
+font-size:26px;
+}
+
+.card{
+padding:20px;
+}
+
+.fee-amount{
+font-size:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>HOUSINGWNAT PROPERTY MANAGEMENT</h1>
+
+<p>Rental Application Payment Portal</p>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Application Status</h2>
+
+<div class="status-box">
+
+<div class="status-title">
+Current Status
+</div>
+
+<div id="statusBadge">
+Pending
+</div>
+
+<div class="loading" id="loadingText">
+Checking application status...
+</div>
+
+</div>
+
+<div class="info">
+
+Your rental application has been received successfully and is currently under review.
+
+Your application status will update automatically once it has been reviewed by our property management team.
+
+</div>
+
+<div class="fee-box">
+
+<div class="fee-title">
+
+Holding Fee Required
+
+</div>
+
+<div class="fee-amount">
+
+USD $400
+
+</div>
+
+<p style="margin-top:15px;line-height:1.7;">
+
+To complete your rental application process, a refundable holding fee of exactly <strong>USD $400</strong> is required. This amount must not be less or greater than the stated fee.
+
+</p>
+
+</div>
+
+</div><!-- Contact Responsible Agent Card -->
+
+<div class="card">
+
+<h2>Complete Your Application</h2>
+
+<p style="line-height:1.8;font-size:16px;color:#444;margin-bottom:20px;">
+
+Your application has been received successfully.
+
+To complete the application process, kindly contact the responsible agent regarding the required <strong>USD $400 Holding Fee</strong>.
+
+Please inform the agent of your preferred payment method. The agent will then provide the appropriate payment account for your selected method.
+
+</p>
+
+<div style="background:#f8fafc;border-left:5px solid #003366;padding:20px;border-radius:8px;margin-bottom:25px;">
+
+<h3 style="color:#003366;margin-bottom:15px;">
+Responsible Agent
+</h3>
+
+<p style="margin-bottom:15px;">
+Choose one of the contact methods below:
+</p>
+
+<!-- WhatsApp -->
+
+<label style="font-weight:bold;color:#003366;">
+WhatsApp
+</label>
+
+<div style="display:flex;gap:10px;margin:10px 0 20px;flex-wrap:wrap;">
+
+<input
+type="text"
+id="whatsappLink"
+readonly
+value="https://wa.me/254700000000"
+style="flex:1;padding:12px;border:1px solid #ccc;border-radius:6px;background:#fff;">
+
+<button
+type="button"
+onclick="copyWhatsApp()"
+style="background:#25D366;color:#fff;border:none;padding:12px 18px;border-radius:6px;cursor:pointer;">
+Copy
+</button>
+
+</div>
+
+<!-- Telegram -->
+
+<label style="font-weight:bold;color:#003366;">
+Telegram
+</label>
+
+<div style="display:flex;gap:10px;margin:10px 0 20px;flex-wrap:wrap;">
+
+<input
+type="text"
+id="telegramLink"
+readonly
+value="https://t.me/YourAgentUsername"
+style="flex:1;padding:12px;border:1px solid #ccc;border-radius:6px;background:#fff;">
+
+<button
+type="button"
+onclick="copyTelegram()"
+style="background:#0088cc;color:#fff;border:none;padding:12px 18px;border-radius:6px;cursor:pointer;">
+Copy
+</button>
+
+</div>
+
+<p style="line-height:1.8;color:#555;">
+
+After contacting the responsible agent, indicate your preferred payment method (Bitcoin, Zelle, Apple Pay, PayPal or Chime). The agent will provide the correct account details for your chosen payment method.
+
+</p>
+
+</div>
+
+</div>
+
+<footer style="background:#003366;color:#fff;text-align:center;padding:20px;margin-top:40px;">
+    © 2026 HOUSINGWNAT PROPERTY MANAGEMENT. All Rights Reserved.
+</footer>
+
+<script type="module">
+    // Paste the entire Firebase script here
+</script>
+
+</body>
+</html>
